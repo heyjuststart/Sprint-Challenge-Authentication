@@ -1,5 +1,5 @@
 const axios = require('axios');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const Users = require('../users/model');
 
 const { authenticate, generateToken } = require('../auth/authenticate');
