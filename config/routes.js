@@ -14,7 +14,7 @@ function register(req, res) {
   // implement user registration
   const user = req.body;
 
-  if (user.username && user.password && user.department) {
+  if (user.username && user.password) {
     user.password = bcrypt.hashSync(user.password, 8);
     const token = generateToken(user);
 
@@ -26,7 +26,7 @@ function register(req, res) {
         res.status(500).json(error);
       });
   } else {
-    req.status(401).json({ message: 'Please provide username, and password' });
+    res.status(401).json({ message: 'Please provide username, and password' });
   }
 }
 
