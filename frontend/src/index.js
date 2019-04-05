@@ -1,6 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+import App from './App';
+import Reset from './Reset';
+
+const FullHeight = createGlobalStyle`
+  html,body, #root {
+    height: 100%;
+  }
+`;
+
+ReactDOM.render(
+  <Router>
+    <FullHeight />
+    <Reset />
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
